@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: portfoliotracker
+  datasource:
+    url: jdbc:sqlite:finance.db
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
