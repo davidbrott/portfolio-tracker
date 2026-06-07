@@ -1,0 +1,36 @@
+<div #modal class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Neues Konto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="account-name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="account-name" [formField]="accountForm.name">
+        </div>
+        <div class="mb-3">
+          <label for="bank-name" class="form-label">Bank</label>
+          <input type="text" class="form-control" id="bank-name" [formField]="accountForm.bankName">
+        </div>
+        <div class="mb-3">
+          <label for="account-balance" class="form-label">Kontostand</label>
+          <input type="number" class="form-control" id="account-balance" [formField]="accountForm.initialBalance">
+        </div>
+        <div class="mb-3">
+          <label for="account-type" class="form-label">Typ</label>       
+          <select class="form-select" aria-label="Default select example" id="account-type" [formField]="accountForm.type">
+            <option disabled>- Bitte auswählen -</option>
+            <option value="CASH" selected>Tagesgeld</option>
+            <option value="FIXED_DEPOSIT">Festgeld</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+        <button type="button" class="btn btn-primary" (click)="createAccount()">Konto erstellen</button>
+      </div>
+    </div>
+  </div>
+</div>

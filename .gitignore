@@ -31,3 +31,13 @@ build/
 
 ### VS Code ###
 .vscode/
+
+frontend/node_modules/
+
+# Build Output
+frontend/dist/
+frontend/.yarn/
+
+# Angular Cache
+frontend/.angular/
+
