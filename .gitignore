@@ -41,3 +41,8 @@ frontend/.yarn/
 # Angular Cache
 frontend/.angular/
 
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+

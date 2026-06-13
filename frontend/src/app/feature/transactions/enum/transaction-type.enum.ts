@@ -1,9 +1,0 @@
-export enum TransactionType {
-    BUY = 'BUY',
-    SELL = 'SELL',
-    DIVIDEND = 'DIVIDEND',
-    INTEREST = 'INTEREST',
-    TRANSFER = 'TRANSFER',
-    DEPOSIT = 'DEPOSIT',
-    WITHDRAWAL = 'WITHDRAWAL'
-}
