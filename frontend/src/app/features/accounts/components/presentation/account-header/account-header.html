@@ -1,0 +1,9 @@
+<div class="account-header-container">
+    <h3>Konten</h3>
+    <div>
+        <button type="button">Bearbeiten</button>
+        <button type="button" (click)="openAccountModal()">Hinzufügen</button>
+    </div>
+</div>
+
+<app-account-modal #modal (accountCreated)="accountCreated.emit($event)" />
