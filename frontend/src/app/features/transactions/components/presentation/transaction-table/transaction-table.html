@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Betrag</th>
+            <th>Typ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(t of transactions(); track t.id) {
+            <tr>
+                <td>{{ t.bookingDate }}</td>
+                <td>{{ t.amount }}</td>
+                <td>{{ t.type }}</td>
+            </tr>
+        }
+    </tbody>
+</table>

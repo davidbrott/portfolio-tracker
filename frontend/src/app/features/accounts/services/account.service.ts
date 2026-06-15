@@ -8,8 +8,8 @@ import { Account } from '../models/account.model';
 export class AccountService {
     private readonly http: HttpClient = inject(HttpClient);
 
-    getAccounts(): Observable<Account> {
-        return this.http.get<Account>(ACCOUNT_ENDPOINTS.GET_ALL);
+    getAccounts(): Observable<Account[]> {
+        return this.http.get<Account[]>(ACCOUNT_ENDPOINTS.GET_ALL);
     }
 
     createAccount(account: Account): Observable<Account> {

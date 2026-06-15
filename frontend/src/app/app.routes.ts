@@ -8,11 +8,11 @@ export const routes: Routes = [
         children: [
             {
                 path: 'accounts',
-                loadComponent: () => import('./features/accounts/components/container/account/account.component').then(m => m.AccountComponent)
+                loadChildren: () => import('./features/accounts/account.routes').then(m => m.ACCOUNT_ROUTES)
             },
              {
                 path: 'transactions',
-                loadComponent: () => import('./features/transactions/components/transaction-table/transaction-table').then(m => m.TransactionTable)
+                loadChildren: () => import('./features/transactions/transaction.routes').then(m => m.TRANSACTION_ROUTES)
             }
         ]
 
