@@ -1,0 +1,36 @@
+<div #modal class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Transfer erstellen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="transfer-date" class="form-label">Datum</label>
+          <input type="date" class="form-control" id="transfer-date" [formField]="transferForm.bookingDate">
+        </div>
+        <div class="mb-3">
+          <label for="transfer-from-account" class="form-label">Von</label>
+          <input type="number" class="form-control" id="transfer-from-account" [formField]="transferForm.fromAccountId">
+        </div>
+        <div class="mb-3">
+          <label for="transfer-to-account" class="form-label">Zu</label>
+          <input type="number" class="form-control" id="transfer-to-account" [formField]="transferForm.toAccountId">
+        </div>
+        <div class="mb-3">
+          <label for="transfer-amount" class="form-label">Betrag</label>
+          <input type="number" class="form-control" id="transfer-amount" [formField]="transferForm.amount">
+        </div>
+        <div class="mb-3">
+          <label for="transfer-note" class="form-label">Notiz</label>
+          <input type="number" class="form-control" id="transfer-note" [formField]="transferForm.note">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+        <button type="button" class="btn btn-primary" (click)="createTransfer()">Speichern</button>
+      </div>
+    </div>
+  </div>
+</div>

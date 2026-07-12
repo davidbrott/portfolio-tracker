@@ -19,4 +19,46 @@ public class GlobalExceptionHandler {
         error,
         HttpStatus.NOT_FOUND);
   }
+
+  @ExceptionHandler
+  public ResponseEntity<ErrorResponse> handleException(AssetNotFoundException exc) {
+    ErrorResponse error = new ErrorResponse(
+        HttpStatus.NOT_FOUND.value(),
+        exc.getMessage(),
+        System.currentTimeMillis()
+    );
+
+    return new ResponseEntity<ErrorResponse>(
+        error,
+        HttpStatus.NOT_FOUND
+    );
+  }
+
+  @ExceptionHandler
+  public ResponseEntity<ErrorResponse> handleException(PriceNotFoundException exc) {
+    ErrorResponse error = new ErrorResponse(
+        HttpStatus.NOT_FOUND.value(),
+        exc.getMessage(),
+        System.currentTimeMillis()
+    );
+
+    return new ResponseEntity<ErrorResponse>(
+        error,
+        HttpStatus.NOT_FOUND
+    );
+  }
+
+  @ExceptionHandler
+  public ResponseEntity<ErrorResponse> handleException(TransactionNotFoundException exc) {
+    ErrorResponse error = new ErrorResponse(
+        HttpStatus.NOT_FOUND.value(),
+        exc.getMessage(),
+        System.currentTimeMillis()
+    );
+
+    return new ResponseEntity<ErrorResponse>(
+        error,
+        HttpStatus.NOT_FOUND
+    );
+  }
 }
