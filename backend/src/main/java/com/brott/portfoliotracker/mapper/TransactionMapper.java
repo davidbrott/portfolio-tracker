@@ -17,12 +17,17 @@ public class TransactionMapper {
       assetId = transaction.getAsset().getId();
     }
 
+    Long toAccountId = null;
+    if (transaction.getToAccount() != null) {
+      toAccountId = transaction.getToAccount().getId();
+    }
+
     return new TransactionDTO(
         transaction.getId(),
         transaction.getBookingDate(),
         transaction.getType(),
         transaction.getFromAccount().getId(),
-        transaction.getToAccount().getId(),
+        toAccountId,
         assetId,
         transaction.getAmount(),
         transaction.getQuantity(),
@@ -34,12 +39,14 @@ public class TransactionMapper {
   }
 
   public Transaction toTransaction(TransactionCreationDTO dto, Account fromAccount,
-      Account toAccount, @Nullable Asset asset) {
+      @Nullable Account toAccount, @Nullable Asset asset) {
     Transaction t = new Transaction();
     t.setBookingDate(dto.bookingDate());
     t.setType(dto.type());
     t.setFromAccount(fromAccount);
-    t.setToAccount(toAccount);
+    if (toAccount != null) {
+      t.setToAccount(toAccount);
+    }
     if (asset != null) {
       t.setAsset(asset);
     }

@@ -5,7 +5,7 @@ export interface Transaction {
     bookingDate: string;
     type: TransactionType;
     fromAccountId: number;
-    toAccountId: number;
+    toAccountId?: number;
     assetId?: number;
     amount: number;
     quantity?: number;

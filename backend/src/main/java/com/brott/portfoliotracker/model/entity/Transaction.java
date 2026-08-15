@@ -38,6 +38,7 @@ public class Transaction {
   private Account fromAccount;
 
   @ManyToOne
+  @Nullable
   private Account toAccount;
 
   @ManyToOne

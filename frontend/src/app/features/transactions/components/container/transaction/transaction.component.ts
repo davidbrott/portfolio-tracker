@@ -5,6 +5,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { TransactionTable } from "../../presentation/transaction-table/transaction-table";
 import { FeatureHeader } from "../../../../../shared/components/feature-header/feature-header.component";
 import { TransactionModal } from "../../presentation/transaction-modal/transaction-modal";
+import { AssetService } from '../../../../assets/services/asset.service';
+import { Asset } from '../../../../assets/models/asset.model';
 
 @Component({
   selector: 'app-transaction',
@@ -16,14 +18,17 @@ export class TransactionComponent implements OnInit {
   transactionModal = viewChild<TransactionModal>('transactionModal');
   allTransactions = signal<Transaction[]>([])
 
+  private allAssets = signal<Asset[]>([]);
   private readonly transactionService = inject(TransactionService);
+  private readonly assetService = inject(AssetService);
 
   ngOnInit(): void {
     this.loadAllTransactions();
+    this.loadAllAssets();
   }
 
   openTransactionModal(): void {
-    this.transactionModal()?.open();
+    this.transactionModal()?.open(this.allAssets());
   }
 
   createTransaction(transaction: Transaction): void {
@@ -37,6 +42,13 @@ export class TransactionComponent implements OnInit {
     this.transactionService.getAllTransactions().subscribe({
       next: (transactions: Transaction[]) => this.allTransactions.set(transactions),
       error: (error: HttpErrorResponse) => console.error('An error occurred while requesting all transactions', error)
+    })
+  }
+
+  private loadAllAssets(): void {
+    this.assetService.getAllAssets().subscribe({
+      next: (assets: Asset[]) => this.allAssets.set(assets),
+      error: (error: HttpErrorResponse) => console.error('An error occurred while requesting all assets', error)
     })
   }
 }
