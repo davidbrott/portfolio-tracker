@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:8080/api';
+import { environment } from "../../../environments/environment";
+
+const BASE_URL = environment.apiUrl;
 
 export const ASSET_ENDPOINTS = {
     CREATE_ASSET: `${BASE_URL}/assets/`,

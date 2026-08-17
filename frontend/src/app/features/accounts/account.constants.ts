@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:8080/api';
+import { environment } from "../../../environments/environment";
+
+const BASE_URL = environment.apiUrl;
 
 export const ACCOUNT_ENDPOINTS = {
     GET_ALL: `${BASE_URL}/accounts/`,
