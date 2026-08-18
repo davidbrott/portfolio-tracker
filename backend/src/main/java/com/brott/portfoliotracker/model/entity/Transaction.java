@@ -34,16 +34,11 @@ public class Transaction {
   @Enumerated(EnumType.STRING)
   private TransactionType type;
 
-  @ManyToOne
-  private Account fromAccount;
+  @ManyToOne private Account fromAccount;
 
-  @ManyToOne
-  @Nullable
-  private Account toAccount;
+  @ManyToOne @Nullable private Account toAccount;
 
-  @ManyToOne
-  @Nullable
-  private Asset asset;
+  @ManyToOne @Nullable private Asset asset;
 
   private BigDecimal amount;
 

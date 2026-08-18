@@ -11,7 +11,4 @@ public record AccountDTO(
     @Enumerated(EnumType.STRING) AccountType type,
     BigDecimal initialBalance,
     BigDecimal currentBalance,
-    String bankName) {
-
-}
-
+    String bankName) {}

@@ -10,55 +10,37 @@ public class GlobalExceptionHandler {
 
   @ExceptionHandler
   public ResponseEntity<ErrorResponse> handleException(AccountNotFoundException exc) {
-    ErrorResponse error = new ErrorResponse(
-        HttpStatus.NOT_FOUND.value(),
-        exc.getMessage(),
-        System.currentTimeMillis());
+    ErrorResponse error =
+        new ErrorResponse(
+            HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
 
-    return new ResponseEntity<ErrorResponse>(
-        error,
-        HttpStatus.NOT_FOUND);
+    return new ResponseEntity<ErrorResponse>(error, HttpStatus.NOT_FOUND);
   }
 
   @ExceptionHandler
   public ResponseEntity<ErrorResponse> handleException(AssetNotFoundException exc) {
-    ErrorResponse error = new ErrorResponse(
-        HttpStatus.NOT_FOUND.value(),
-        exc.getMessage(),
-        System.currentTimeMillis()
-    );
+    ErrorResponse error =
+        new ErrorResponse(
+            HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
 
-    return new ResponseEntity<ErrorResponse>(
-        error,
-        HttpStatus.NOT_FOUND
-    );
+    return new ResponseEntity<ErrorResponse>(error, HttpStatus.NOT_FOUND);
   }
 
   @ExceptionHandler
   public ResponseEntity<ErrorResponse> handleException(PriceNotFoundException exc) {
-    ErrorResponse error = new ErrorResponse(
-        HttpStatus.NOT_FOUND.value(),
-        exc.getMessage(),
-        System.currentTimeMillis()
-    );
+    ErrorResponse error =
+        new ErrorResponse(
+            HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
 
-    return new ResponseEntity<ErrorResponse>(
-        error,
-        HttpStatus.NOT_FOUND
-    );
+    return new ResponseEntity<ErrorResponse>(error, HttpStatus.NOT_FOUND);
   }
 
   @ExceptionHandler
   public ResponseEntity<ErrorResponse> handleException(TransactionNotFoundException exc) {
-    ErrorResponse error = new ErrorResponse(
-        HttpStatus.NOT_FOUND.value(),
-        exc.getMessage(),
-        System.currentTimeMillis()
-    );
+    ErrorResponse error =
+        new ErrorResponse(
+            HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
 
-    return new ResponseEntity<ErrorResponse>(
-        error,
-        HttpStatus.NOT_FOUND
-    );
+    return new ResponseEntity<ErrorResponse>(error, HttpStatus.NOT_FOUND);
   }
 }

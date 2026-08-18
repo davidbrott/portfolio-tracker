@@ -18,8 +18,7 @@ public class AssetController {
 
   private final AssetService assetService;
 
-  public AssetController(
-      AssetService assetService) {
+  public AssetController(AssetService assetService) {
     this.assetService = assetService;
   }
 
@@ -29,9 +28,7 @@ public class AssetController {
   }
 
   @PostMapping("/")
-  public AssetDTO createAsset(
-      @RequestBody
-      AssetCreationDTO dto) {
+  public AssetDTO createAsset(@RequestBody AssetCreationDTO dto) {
     return assetService.save(dto);
   }
 }

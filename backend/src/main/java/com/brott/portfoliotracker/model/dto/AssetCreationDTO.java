@@ -4,10 +4,5 @@ import com.brott.portfoliotracker.model.AssetType;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
-public record AssetCreationDTO(String name,
-                               String isin,
-                               String ticker,
-                               @Enumerated(EnumType.STRING)
-                               AssetType type) {
-
-}
+public record AssetCreationDTO(
+    String name, String isin, String ticker, @Enumerated(EnumType.STRING) AssetType type) {}

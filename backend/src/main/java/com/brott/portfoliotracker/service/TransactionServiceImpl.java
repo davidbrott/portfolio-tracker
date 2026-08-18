@@ -43,8 +43,7 @@ public class TransactionServiceImpl implements TransactionService {
   public TransactionDTO save(TransactionCreationDTO dto) {
     TransactionDTO transactionDTO = null;
 
-    Optional<Account> fromAccount = this.accountRepository.findById(
-        dto.fromAccountId());
+    Optional<Account> fromAccount = this.accountRepository.findById(dto.fromAccountId());
 
     if (fromAccount.isEmpty()) {
       throw new RuntimeException(); // TODO Error
@@ -57,11 +56,10 @@ public class TransactionServiceImpl implements TransactionService {
 
     switch (dto.type()) {
       case TRANSFER:
-        Optional<Account> toAccount = this.accountRepository.findById(
-            dto.toAccountId());
+        Optional<Account> toAccount = this.accountRepository.findById(dto.toAccountId());
 
         if (toAccount.isEmpty()) {
-          throw new RuntimeException(); //TODO Error
+          throw new RuntimeException(); // TODO Error
         }
 
         Account toAcc = toAccount.get();
@@ -93,20 +91,18 @@ public class TransactionServiceImpl implements TransactionService {
         transactionDTO = saveTransaction(dto, fromAcc, null, asset.get());
 
         break;
-
     }
 
     // TODO
-      /*
-  SELL,
-  DIVIDEND,
-  INTEREST,
-  DEPOSIT,
-  WITHDRAWAL
-       */
+    /*
+    SELL,
+    DIVIDEND,
+    INTEREST,
+    DEPOSIT,
+    WITHDRAWAL
+         */
 
     return transactionDTO;
-
   }
 
   @Override
@@ -137,11 +133,11 @@ public class TransactionServiceImpl implements TransactionService {
     return transactionRepository.sumOutgoing(accountId);
   }
 
-  private TransactionDTO saveTransaction(TransactionCreationDTO dto, Account fromAccount,
-      Account toAccount, Asset asset) {
-    Transaction transaction = this.transactionRepository.save(
-        transactionMapper.toTransaction(dto, fromAccount, toAccount, asset));
+  private TransactionDTO saveTransaction(
+      TransactionCreationDTO dto, Account fromAccount, Account toAccount, Asset asset) {
+    Transaction transaction =
+        this.transactionRepository.save(
+            transactionMapper.toTransaction(dto, fromAccount, toAccount, asset));
     return transactionMapper.toDto(transaction);
   }
-
 }

@@ -11,11 +11,7 @@ public class PriceMapper {
 
   public PriceDTO toDto(Price price) {
     return new PriceDTO(
-        price.getId(),
-        price.getAsset().getId(),
-        price.getPrice(),
-        price.getPriceDate()
-    );
+        price.getId(), price.getAsset().getId(), price.getPrice(), price.getPriceDate());
   }
 
   public Price toPrice(PriceCreationDTO dto, Asset asset) {

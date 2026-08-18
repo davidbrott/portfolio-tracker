@@ -21,8 +21,8 @@ public class PriceServiceImpl implements PriceService {
 
   private final PriceMapper priceMapper;
 
-  public PriceServiceImpl(PriceRepository priceRepository, AssetRepository assetRepository,
-      PriceMapper priceMapper) {
+  public PriceServiceImpl(
+      PriceRepository priceRepository, AssetRepository assetRepository, PriceMapper priceMapper) {
     this.priceRepository = priceRepository;
     this.assetRepository = assetRepository;
     this.priceMapper = priceMapper;

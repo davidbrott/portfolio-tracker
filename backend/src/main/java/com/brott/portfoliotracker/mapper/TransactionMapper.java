@@ -34,12 +34,14 @@ public class TransactionMapper {
         transaction.getUnitPrice(),
         transaction.getFees(),
         transaction.getTaxes(),
-        transaction.getNote()
-    );
+        transaction.getNote());
   }
 
-  public Transaction toTransaction(TransactionCreationDTO dto, Account fromAccount,
-      @Nullable Account toAccount, @Nullable Asset asset) {
+  public Transaction toTransaction(
+      TransactionCreationDTO dto,
+      Account fromAccount,
+      @Nullable Account toAccount,
+      @Nullable Asset asset) {
     Transaction t = new Transaction();
     t.setBookingDate(dto.bookingDate());
     t.setType(dto.type());

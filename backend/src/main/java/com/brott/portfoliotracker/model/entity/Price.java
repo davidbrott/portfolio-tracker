@@ -19,8 +19,7 @@ public class Price {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @ManyToOne
-  private Asset asset;
+  @ManyToOne private Asset asset;
 
   private BigDecimal price;
 

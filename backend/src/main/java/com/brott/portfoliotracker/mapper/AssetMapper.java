@@ -10,12 +10,7 @@ public class AssetMapper {
 
   public AssetDTO toDto(Asset asset) {
     return new AssetDTO(
-        asset.getId(),
-        asset.getName(),
-        asset.getIsin(),
-        asset.getTicker(),
-        asset.getType()
-    );
+        asset.getId(), asset.getName(), asset.getIsin(), asset.getTicker(), asset.getType());
   }
 
   public Asset toAsset(AssetCreationDTO dto) {

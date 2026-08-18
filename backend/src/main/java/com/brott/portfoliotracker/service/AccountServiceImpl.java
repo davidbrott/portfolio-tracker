@@ -31,17 +31,15 @@ public class AccountServiceImpl implements AccountService {
   public AccountDTO save(AccountCreationDTO dto) {
     Account account = this.accountRepository.save(this.accountMapper.toAccount(dto));
     return this.accountMapper.toDto(
-        account,
-        calcBalance(
-            account.getInitialBalance(),
-            account.getId()));
+        account, calcBalance(account.getInitialBalance(), account.getId()));
   }
 
   @Override
   public List<AccountDTO> findAll() {
     List<Account> accounts = this.accountRepository.findAll();
     return accounts.stream()
-        .map(a -> accountMapper.toDto(a, calcBalance(a.getInitialBalance(), a.getId()))).toList();
+        .map(a -> accountMapper.toDto(a, calcBalance(a.getInitialBalance(), a.getId())))
+        .toList();
   }
 
   @Override
@@ -52,9 +50,7 @@ public class AccountServiceImpl implements AccountService {
       Account a = account.get();
       return accountMapper.toDto(a, calcBalance(a.getInitialBalance(), a.getId()));
     } else {
-      throw new AccountNotFoundException(String.format(
-          "Account with id %s does not exist",
-          id));
+      throw new AccountNotFoundException(String.format("Account with id %s does not exist", id));
     }
   }
 
@@ -65,9 +61,7 @@ public class AccountServiceImpl implements AccountService {
     if (account.isPresent()) {
       return account.get();
     } else {
-      throw new AccountNotFoundException(String.format(
-          "Account with id %s does not exists",
-          id));
+      throw new AccountNotFoundException(String.format("Account with id %s does not exists", id));
     }
   }
 
@@ -78,16 +72,11 @@ public class AccountServiceImpl implements AccountService {
     if (account.isPresent()) {
       this.accountRepository.deleteById(id);
     } else {
-      throw new AccountNotFoundException(String.format(
-          "Account with id %s does not exists",
-          id));
+      throw new AccountNotFoundException(String.format("Account with id %s does not exists", id));
     }
-
   }
 
-  private BigDecimal calcBalance(
-      BigDecimal initialBalance,
-      Long accountId) {
+  private BigDecimal calcBalance(BigDecimal initialBalance, Long accountId) {
     BigDecimal sumIncoming = transactionService.sumIncoming(accountId);
     BigDecimal sumOutgoing = transactionService.sumOutgoing(accountId);
 
