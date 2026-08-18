@@ -14,7 +14,7 @@ interface AccountData {
   selector: 'app-account-modal',
   imports: [FormField],
   templateUrl: './account-modal.html',
-  styleUrl: './account-modal.scss',
+  styleUrl: './account-modal.scss'
 })
 export class AccountModal {
   modal = viewChild<ElementRef>('modal');
@@ -22,7 +22,7 @@ export class AccountModal {
     name: '',
     bankName: '',
     initialBalance: 0
-  })
+  });
 
   accountCreated = output<Account>();
 
@@ -39,10 +39,9 @@ export class AccountModal {
     const account: Account = {
       ...this.accountModel(),
       type: AccountType.CASH
-    }
+    };
 
-
-    this.accountCreated.emit(account)
+    this.accountCreated.emit(account);
     this.bootstrapModal.hide();
   }
 }

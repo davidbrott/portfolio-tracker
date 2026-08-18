@@ -8,7 +8,7 @@ describe('AccountHeader', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AccountHeader],
+      imports: [AccountHeader]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AccountHeader);

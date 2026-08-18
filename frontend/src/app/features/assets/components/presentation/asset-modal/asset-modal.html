@@ -8,23 +8,28 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="asset-name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="asset-name" [formField]="assetForm.name">
+          <input type="text" class="form-control" id="asset-name" [formField]="assetForm.name" />
         </div>
         <div class="mb-3">
           <label for="asset-isin" class="form-label">Isin</label>
-          <input type="text" class="form-control" id="asset-isin" [formField]="assetForm.isin">
+          <input type="text" class="form-control" id="asset-isin" [formField]="assetForm.isin" />
         </div>
         <div class="mb-3">
           <label for="asset-ticker" class="form-label">Ticker</label>
-          <input type="text" class="form-control" id="asset-ticker" [formField]="assetForm.ticker">
+          <input
+            type="text"
+            class="form-control"
+            id="asset-ticker"
+            [formField]="assetForm.ticker"
+          />
         </div>
         <div class="mb-3">
-            <label for="asset-type" class="form-label">Typ</label>
-            <select class="form-select" [formField]="assetForm.type">
-                <option selected disabled>- Bitte auswählen -</option>
-                <option [value]="assetType.ETF">{{ assetType.ETF }}</option>
-                <option [value]="assetType.STOCK">{{ assetType.STOCK }}</option>
-            </select>
+          <label for="asset-type" class="form-label">Typ</label>
+          <select class="form-select" [formField]="assetForm.type">
+            <option selected disabled>- Bitte auswählen -</option>
+            <option [value]="assetType.ETF">{{ assetType.ETF }}</option>
+            <option [value]="assetType.STOCK">{{ assetType.STOCK }}</option>
+          </select>
         </div>
       </div>
       <div class="modal-footer">
@@ -34,4 +39,3 @@
     </div>
   </div>
 </div>
-

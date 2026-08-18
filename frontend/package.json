@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prettier": "yarn exec prettier . --write"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +27,7 @@
     "@angular/compiler-cli": "^22.0.0",
     "@types/bootstrap": "^5",
     "jsdom": "^28.0.0",
-    "prettier": "^3.8.1",
+    "prettier": "3.9.6",
     "typescript": "~6.0.2",
     "vitest": "^4.0.8"
   },

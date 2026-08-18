@@ -6,13 +6,13 @@ import { TRANSACTION_ENDPOINTS } from '../transaction.constants';
 
 @Service()
 export class TransactionService {
-    private readonly http = inject(HttpClient);
+  private readonly http = inject(HttpClient);
 
-    createTransaction(transaction: Transaction): Observable<Transaction> {
-        return this.http.post<Transaction>(TRANSACTION_ENDPOINTS.CREATE, transaction);
-    }
+  createTransaction(transaction: Transaction): Observable<Transaction> {
+    return this.http.post<Transaction>(TRANSACTION_ENDPOINTS.CREATE, transaction);
+  }
 
-    getAllTransactions(): Observable<Transaction[]> {
-        return this.http.get<Transaction[]>(TRANSACTION_ENDPOINTS.GET_ALL);
-    }
+  getAllTransactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(TRANSACTION_ENDPOINTS.GET_ALL);
+  }
 }

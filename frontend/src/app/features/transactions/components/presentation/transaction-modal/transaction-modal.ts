@@ -6,27 +6,27 @@ import { Modal } from 'bootstrap';
 import { Asset } from '../../../../assets/models/asset.model';
 
 interface TransferData {
-   bookingDate: string;
-   type: TransactionType;
-   fromAccountId: number;
-   toAccountId: number;
-   assetId: number;
-   amount: number;
-   quantity: number;
-   unitPrice: number;
-   fees: number;
-   taxes: number;
-   note: string;
+  bookingDate: string;
+  type: TransactionType;
+  fromAccountId: number;
+  toAccountId: number;
+  assetId: number;
+  amount: number;
+  quantity: number;
+  unitPrice: number;
+  fees: number;
+  taxes: number;
+  note: string;
 }
 
 @Component({
   selector: 'app-transaction-modal',
   imports: [FormField],
   templateUrl: './transaction-modal.html',
-  styleUrl: './transaction-modal.scss',
+  styleUrl: './transaction-modal.scss'
 })
 export class TransactionModal {
-  modal = viewChild<ElementRef>('modal');  
+  modal = viewChild<ElementRef>('modal');
   transferModel = signal<TransferData>({
     bookingDate: '',
     type: TransactionType.TRANSFER,
@@ -39,7 +39,7 @@ export class TransactionModal {
     fees: 0,
     taxes: 0,
     note: ''
-  })
+  });
 
   transferForm = form(this.transferModel);
   selectedTransactionType = signal<TransactionType>(TransactionType.TRANSFER);

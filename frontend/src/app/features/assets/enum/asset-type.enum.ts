@@ -1,4 +1,4 @@
 export enum AssetType {
-    ETF = 'ETF',
-    STOCK = 'STOCK'
+  ETF = 'ETF',
+  STOCK = 'STOCK'
 }

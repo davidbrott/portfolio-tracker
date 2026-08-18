@@ -1,16 +1,16 @@
 <table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Bank</th>
+    <th>Kontostand</th>
+    <th>Typ</th>
+  </tr>
+  @for (a of accounts(); track a.id) {
     <tr>
-        <th>Name</th>
-        <th>Bank</th>
-        <th>Kontostand</th>
-        <th>Typ</th>
+      <td>{{ a.name }}</td>
+      <td>{{ a.bankName }}</td>
+      <td>{{ a.currentBalance }}</td>
+      <td>{{ a.type }}</td>
     </tr>
-    @for(a of accounts(); track a.id) {
-        <tr>
-            <td>{{ a.name }}</td>
-            <td>{{ a.bankName }}</td>
-            <td>{{ a.currentBalance }}</td>
-            <td>{{ a.type }}</td>
-        </tr>
-    }
+  }
 </table>

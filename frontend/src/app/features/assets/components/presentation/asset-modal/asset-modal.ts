@@ -15,7 +15,7 @@ interface AssetData {
   selector: 'app-asset-modal',
   imports: [FormField],
   templateUrl: './asset-modal.html',
-  styleUrl: './asset-modal.scss',
+  styleUrl: './asset-modal.scss'
 })
 export class AssetModal {
   modal = viewChild<ElementRef>('modal');
@@ -24,7 +24,7 @@ export class AssetModal {
     isin: '',
     ticker: '',
     type: AssetType.ETF
-  })
+  });
 
   assetCreated = output<Asset>();
 
@@ -33,7 +33,7 @@ export class AssetModal {
   assetType = AssetType;
 
   private bootstrapModal!: Modal;
-  
+
   open(): void {
     this.bootstrapModal = new Modal(this.modal()!.nativeElement);
     this.bootstrapModal.show();
@@ -42,7 +42,7 @@ export class AssetModal {
   createAsset(): void {
     const asset: Asset = {
       ...this.assetModel()
-    }
+    };
 
     this.assetCreated.emit(asset);
     this.bootstrapModal.hide();

@@ -1,16 +1,16 @@
 <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Typ</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (a of assets(); track $index) {
-            <tr>
-                <td>{{ a.name }}</td>
-                <td>{{ a.type }}</td>
-            </tr>
-        }
-    </tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (a of assets(); track $index) {
+      <tr>
+        <td>{{ a.name }}</td>
+        <td>{{ a.type }}</td>
+      </tr>
+    }
+  </tbody>
 </table>

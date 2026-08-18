@@ -5,7 +5,7 @@ import { Transaction } from '../../../models/transaction.model';
   selector: 'app-transaction-table',
   imports: [],
   templateUrl: './transaction-table.html',
-  styleUrl: './transaction-table.scss',
+  styleUrl: './transaction-table.scss'
 })
 export class TransactionTable {
   transactions = input<Transaction[]>([]);

@@ -1,0 +1,6 @@
+build
+coverage
+.angular
+.vscode
+.yarn
+node_modules

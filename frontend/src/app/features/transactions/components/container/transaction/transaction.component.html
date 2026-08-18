@@ -1,6 +1,10 @@
 <div class="transaction-container">
-    <app-feature-header title="Transaktionen" btnLabel="Hinzufügen" (create)="openTransactionModal()"/>
-    <app-transaction-table [transactions]="allTransactions()" />
+  <app-feature-header
+    title="Transaktionen"
+    btnLabel="Hinzufügen"
+    (create)="openTransactionModal()"
+  />
+  <app-transaction-table [transactions]="allTransactions()" />
 </div>
 
 <app-transaction-modal #transactionModal (transactionCreated)="createTransaction($event)" />

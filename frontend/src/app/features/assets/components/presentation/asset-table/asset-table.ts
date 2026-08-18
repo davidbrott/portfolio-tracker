@@ -5,7 +5,7 @@ import { Asset } from '../../../models/asset.model';
   selector: 'app-asset-table',
   imports: [],
   templateUrl: './asset-table.html',
-  styleUrl: './asset-table.scss',
+  styleUrl: './asset-table.scss'
 })
 export class AssetTable {
   assets = input.required<Asset[]>();

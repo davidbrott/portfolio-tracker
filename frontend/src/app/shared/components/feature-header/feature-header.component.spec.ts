@@ -8,7 +8,7 @@ describe('FeatureHeader', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FeatureHeader],
+      imports: [FeatureHeader]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FeatureHeader);

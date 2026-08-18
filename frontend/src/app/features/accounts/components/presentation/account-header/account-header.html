@@ -1,6 +1,8 @@
 <div class="account-header-container">
-    <h3>Konten</h3>
-    <button type="button" class="btn btn-secondary btn-sm" (click)="openAccountModal()">Hinzufügen</button>
+  <h3>Konten</h3>
+  <button type="button" class="btn btn-secondary btn-sm" (click)="openAccountModal()">
+    Hinzufügen
+  </button>
 </div>
 
 <app-account-modal #modal (accountCreated)="accountCreated.emit($event)" />

@@ -8,7 +8,7 @@ describe('AccountTable', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AccountTable],
+      imports: [AccountTable]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AccountTable);

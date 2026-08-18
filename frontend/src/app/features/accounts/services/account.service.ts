@@ -6,17 +6,17 @@ import { Account } from '../models/account.model';
 
 @Service()
 export class AccountService {
-    private readonly http: HttpClient = inject(HttpClient);
+  private readonly http: HttpClient = inject(HttpClient);
 
-    getAccounts(): Observable<Account[]> {
-        return this.http.get<Account[]>(ACCOUNT_ENDPOINTS.GET_ALL);
-    }
+  getAccounts(): Observable<Account[]> {
+    return this.http.get<Account[]>(ACCOUNT_ENDPOINTS.GET_ALL);
+  }
 
-    createAccount(account: Account): Observable<Account> {
-        return this.http.post<Account>(ACCOUNT_ENDPOINTS.CREATE, account);
-    }
+  createAccount(account: Account): Observable<Account> {
+    return this.http.post<Account>(ACCOUNT_ENDPOINTS.CREATE, account);
+  }
 
-    deleteAccount(id: number): Observable<void> {
-        return this.http.delete<void>(ACCOUNT_ENDPOINTS.DELETE(id));
-    }
+  deleteAccount(id: number): Observable<void> {
+    return this.http.delete<void>(ACCOUNT_ENDPOINTS.DELETE(id));
+  }
 }

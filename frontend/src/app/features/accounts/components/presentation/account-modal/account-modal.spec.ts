@@ -8,7 +8,7 @@ describe('AccountModal', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AccountModal],
+      imports: [AccountModal]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AccountModal);
