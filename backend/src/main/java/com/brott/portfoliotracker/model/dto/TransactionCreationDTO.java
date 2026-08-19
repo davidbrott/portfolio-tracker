@@ -1,18 +1,17 @@
 package com.brott.portfoliotracker.model.dto;
 
 import com.brott.portfoliotracker.model.TransactionType;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public record TransactionCreationDTO(
     LocalDate bookingDate,
-    @Enumerated(EnumType.STRING) TransactionType type,
-    Long fromAccountId,
+    @NotNull TransactionType type,
+    @NotNull Long fromAccountId,
     Long toAccountId,
     Long assetId,
-    BigDecimal amount,
+    @NotNull BigDecimal amount,
     BigDecimal quantity,
     BigDecimal unitPrice,
     BigDecimal fees,

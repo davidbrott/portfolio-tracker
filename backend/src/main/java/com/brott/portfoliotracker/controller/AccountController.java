@@ -3,6 +3,7 @@ package com.brott.portfoliotracker.controller;
 import com.brott.portfoliotracker.model.dto.AccountCreationDTO;
 import com.brott.portfoliotracker.model.dto.AccountDTO;
 import com.brott.portfoliotracker.service.AccountService;
+import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,7 +32,7 @@ public class AccountController {
   }
 
   @PostMapping("/")
-  public AccountDTO createAccount(@RequestBody AccountCreationDTO dto) {
+  public AccountDTO createAccount(@Valid @RequestBody AccountCreationDTO dto) {
     return accountService.save(dto);
   }
 
@@ -41,7 +42,7 @@ public class AccountController {
   }
 
   @PutMapping("/")
-  public AccountDTO updateAccount(@RequestBody AccountCreationDTO dto) {
+  public AccountDTO updateAccount(@Valid @RequestBody AccountCreationDTO dto) {
     return this.accountService.save(dto);
   }
 

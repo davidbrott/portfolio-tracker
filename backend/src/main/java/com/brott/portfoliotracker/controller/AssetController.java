@@ -3,6 +3,7 @@ package com.brott.portfoliotracker.controller;
 import com.brott.portfoliotracker.model.dto.AssetCreationDTO;
 import com.brott.portfoliotracker.model.dto.AssetDTO;
 import com.brott.portfoliotracker.service.AssetService;
+import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ public class AssetController {
   }
 
   @PostMapping("/")
-  public AssetDTO createAsset(@RequestBody AssetCreationDTO dto) {
+  public AssetDTO createAsset(@Valid @RequestBody AssetCreationDTO dto) {
     return assetService.save(dto);
   }
 }

@@ -3,6 +3,7 @@ package com.brott.portfoliotracker.controller;
 import com.brott.portfoliotracker.model.dto.TransactionCreationDTO;
 import com.brott.portfoliotracker.model.dto.TransactionDTO;
 import com.brott.portfoliotracker.service.TransactionService;
+import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ public class TransactionController {
   }
 
   @PostMapping("/")
-  public TransactionDTO createTransaction(@RequestBody TransactionCreationDTO dto) {
+  public TransactionDTO createTransaction(@Valid @RequestBody TransactionCreationDTO dto) {
     return transactionService.save(dto);
   }
 }

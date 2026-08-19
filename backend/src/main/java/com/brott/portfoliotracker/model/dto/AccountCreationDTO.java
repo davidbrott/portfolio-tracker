@@ -1,11 +1,13 @@
 package com.brott.portfoliotracker.model.dto;
 
 import com.brott.portfoliotracker.model.AccountType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public record AccountCreationDTO(
-    String name,
-    AccountType type,
+    @NotBlank String name,
+    @NotNull AccountType type,
     BigDecimal initialBalance,
     BigDecimal currentBalance,
-    String bankName) {}
+    @NotBlank String bankName) {}

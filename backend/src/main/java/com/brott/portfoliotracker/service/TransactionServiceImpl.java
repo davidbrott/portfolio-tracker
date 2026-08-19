@@ -1,5 +1,7 @@
 package com.brott.portfoliotracker.service;
 
+import com.brott.portfoliotracker.exception.AccountNotFoundException;
+import com.brott.portfoliotracker.exception.AssetNotFoundException;
 import com.brott.portfoliotracker.exception.TransactionNotFoundException;
 import com.brott.portfoliotracker.mapper.TransactionMapper;
 import com.brott.portfoliotracker.model.dto.TransactionCreationDTO;
@@ -46,7 +48,8 @@ public class TransactionServiceImpl implements TransactionService {
     Optional<Account> fromAccount = this.accountRepository.findById(dto.fromAccountId());
 
     if (fromAccount.isEmpty()) {
-      throw new RuntimeException(); // TODO Error
+      throw new AccountNotFoundException(
+          String.format("Account with %s does not exist", dto.fromAccountId()));
     }
 
     Account fromAcc = fromAccount.get();
@@ -59,7 +62,8 @@ public class TransactionServiceImpl implements TransactionService {
         Optional<Account> toAccount = this.accountRepository.findById(dto.toAccountId());
 
         if (toAccount.isEmpty()) {
-          throw new RuntimeException(); // TODO Error
+          throw new AccountNotFoundException(
+              String.format("Account with %s does not exist", dto.toAccountId()));
         }
 
         Account toAcc = toAccount.get();
@@ -76,31 +80,30 @@ public class TransactionServiceImpl implements TransactionService {
         break;
 
       case BUY:
-        System.out.println("Create BUY Transaction");
         fromAcc.setCurrentBalance(fromCurrentBalance.subtract(dto.amount()));
 
         this.accountRepository.save(fromAcc);
         Optional<Asset> asset = this.assetRepository.findById(dto.assetId());
 
-        System.out.println("ASSET FOUND");
-
         if (asset.isEmpty()) {
-          throw new RuntimeException(); // TODO Error
+          throw new AssetNotFoundException(
+              String.format("Asset with %s does not exist", dto.assetId()));
         }
 
         transactionDTO = saveTransaction(dto, fromAcc, null, asset.get());
 
         break;
+      case SELL:
+        break;
+      case DIVIDEND:
+        break;
+      case INTEREST:
+        break;
+      case DEPOSIT:
+        break;
+      case WITHDRAWAL:
+        break;
     }
-
-    // TODO
-    /*
-    SELL,
-    DIVIDEND,
-    INTEREST,
-    DEPOSIT,
-    WITHDRAWAL
-         */
 
     return transactionDTO;
   }

@@ -3,6 +3,7 @@ package com.brott.portfoliotracker.controller;
 import com.brott.portfoliotracker.model.dto.PriceCreationDTO;
 import com.brott.portfoliotracker.model.dto.PriceDTO;
 import com.brott.portfoliotracker.service.PriceService;
+import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ public class PriceController {
   }
 
   @PostMapping("/")
-  public PriceDTO createPrice(@RequestBody PriceCreationDTO dto) {
+  public PriceDTO createPrice(@Valid @RequestBody PriceCreationDTO dto) {
     return priceService.save(dto);
   }
 

@@ -1,8 +1,8 @@
 package com.brott.portfoliotracker.model.dto;
 
 import com.brott.portfoliotracker.model.AssetType;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record AssetCreationDTO(
-    String name, String isin, String ticker, @Enumerated(EnumType.STRING) AssetType type) {}
+    @NotBlank String name, String isin, String ticker, @NotNull AssetType type) {}
