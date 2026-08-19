@@ -5,7 +5,6 @@ import com.brott.portfoliotracker.model.dto.AccountDTO;
 import com.brott.portfoliotracker.service.AccountService;
 import jakarta.validation.Valid;
 import java.util.List;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/accounts")
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8080"})
 public class AccountController {
 
   private final AccountService accountService;
