@@ -5,4 +5,23 @@
   padding: var(--sidebar-padding-x) var(--sidebar-padding-y);
   background-color: var(--sidebar-bg);
   height: calc(100vh - var(--header-height));
+
+  .sidebar__button {
+    border: none;
+    padding: 16px 24px;
+    background-color: transparent;
+    color: var(--primary);
+    text-align: start;
+    font-size: 19px;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+
+  .sidebar__button--active {
+    background-color: #e0e0e0;
+    border-left: 4px solid var(--primary);
+  }
 }

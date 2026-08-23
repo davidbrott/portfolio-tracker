@@ -1,5 +1,29 @@
 <div class="sidebar">
-  <button type="button" class="btn btn-primary" routerLink="accounts">Konten</button>
-  <button type="button" class="btn btn-primary" routerLink="transactions">Transaktionen</button>
-  <button type="button" class="btn btn-primary" routerLink="assets">Assets</button>
+  <button
+    type="button"
+    class="sidebar__button"
+    routerLink="accounts"
+    routerLinkActive="sidebar__button--active"
+  >
+    <span class="fa-solid fa-building-columns fa-lg"></span>
+    {{ 'navigation.accounts' | translate }}
+  </button>
+  <button
+    type="button"
+    class="sidebar__button"
+    routerLink="transactions"
+    routerLinkActive="sidebar__button--active"
+  >
+    <span class="fa-solid fa-arrow-right-arrow-left fa-lg"></span>
+    {{ 'navigation.transactions' | translate }}
+  </button>
+  <button
+    type="button"
+    class="sidebar__button"
+    routerLink="assets"
+    routerLinkActive="sidebar__button--active"
+  >
+    <span class="fa-solid fa-arrow-trend-up fa-lg"></span>
+    {{ 'navigation.assets' | translate }}
+  </button>
 </div>

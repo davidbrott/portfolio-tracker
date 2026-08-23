@@ -2,12 +2,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Konto erstellen</h5>
+        <h5 class="modal-title">{{ 'accounts.modal.title' | translate }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="mb-3">
-          <label for="account-name" class="form-label">Name</label>
+          <label for="account-name" class="form-label">{{
+            'accounts.modal.name' | translate
+          }}</label>
           <input
             type="text"
             class="form-control"
@@ -16,7 +18,9 @@
           />
         </div>
         <div class="mb-3">
-          <label for="account-bank-name" class="form-label">Bank</label>
+          <label for="account-bank-name" class="form-label">{{
+            'accounts.modal.bank' | translate
+          }}</label>
           <input
             type="text"
             class="form-control"
@@ -25,7 +29,25 @@
           />
         </div>
         <div class="mb-3">
-          <label for="account-initial-blanace" class="form-label">Kontostand</label>
+          <label for="account-type" class="form-label">{{
+            'accounts.modal.type' | translate
+          }}</label>
+          <select class="form-select" id="account-type" [formField]="accountForm.type">
+            <option [value]="accountType.CHECKING_ACCOUNT">
+              {{ 'accounts.modal.checkAccount' | translate }}
+            </option>
+            <option [value]="accountType.SAVINGS_ACCOUNT">
+              {{ 'accounts.modal.instantAccessAccount' | translate }}
+            </option>
+            <option [value]="accountType.FIXED_DEPOSIT">
+              {{ 'accounts.modal.fixedDepositAccount' | translate }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="account-initial-blanace" class="form-label">{{
+            'accounts.modal.balance' | translate
+          }}</label>
           <input
             type="number"
             class="form-control"
@@ -35,8 +57,12 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
-        <button type="button" class="btn btn-primary" (click)="createAccount()">Speichern</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ 'common.button.close' | translate }}
+        </button>
+        <button type="button" class="btn btn-primary" (click)="createAccount()">
+          {{ 'common.button.save' | translate }}
+        </button>
       </div>
     </div>
   </div>

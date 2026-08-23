@@ -2,8 +2,8 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { AccountHeader } from '../../presentation/account-header/account-header';
 import { AccountTable } from '../../presentation/account-table/account-table';
 import { AccountService } from '../../../services/account.service';
-import { Account } from '../../../models/account.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Account } from '../../../../../shared/models/account.model';
 
 @Component({
   selector: 'app-account',

@@ -1,8 +1,12 @@
 .header {
   height: var(--header-height);
-  background-color: var(--header-bg);
+  background-color: var(--primary);
   padding: var(--header-padding-x) var(--header-padding-y);
   color: white;
   display: flex;
   align-items: center;
+}
+
+h2 {
+  margin: 0;
 }

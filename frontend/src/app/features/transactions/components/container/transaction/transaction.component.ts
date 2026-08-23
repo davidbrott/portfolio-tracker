@@ -7,6 +7,8 @@ import { FeatureHeader } from '../../../../../shared/components/feature-header/f
 import { TransactionModal } from '../../presentation/transaction-modal/transaction-modal';
 import { AssetService } from '../../../../assets/services/asset.service';
 import { Asset } from '../../../../assets/models/asset.model';
+import { AccountService } from '../../../../accounts/services/account.service';
+import { Account } from '../../../../../shared/models/account.model';
 
 @Component({
   selector: 'app-transaction',
@@ -17,6 +19,7 @@ import { Asset } from '../../../../assets/models/asset.model';
 export class TransactionComponent implements OnInit {
   transactionModal = viewChild<TransactionModal>('transactionModal');
   allTransactions = signal<Transaction[]>([]);
+  allAccounts = signal<Account[]>([]);
 
   private allAssets = signal<Asset[]>([]);
   private readonly transactionService = inject(TransactionService);
@@ -25,10 +28,11 @@ export class TransactionComponent implements OnInit {
   ngOnInit(): void {
     this.loadAllTransactions();
     this.loadAllAssets();
+    this.loadAllAccounts();
   }
 
   openTransactionModal(): void {
-    this.transactionModal()?.open(this.allAssets());
+    this.transactionModal()?.open(this.allAssets(), this.allAccounts());
   }
 
   createTransaction(transaction: Transaction): void {
@@ -53,6 +57,14 @@ export class TransactionComponent implements OnInit {
       next: (assets: Asset[]) => this.allAssets.set(assets),
       error: (error: HttpErrorResponse) =>
         console.error('An error occurred while requesting all assets', error)
+    });
+  }
+
+  private loadAllAccounts(): void {
+    this.transactionService.getAllAccounts().subscribe({
+      next: (accounts: Account[]) => this.allAccounts.set(accounts),
+      error: (error: HttpErrorResponse) =>
+        console.error('An error occurred while requesting all accounts', error)
     });
   }
 }

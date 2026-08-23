@@ -2,22 +2,32 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Transfer erstellen</h5>
+        <h5 class="modal-title">{{ 'transactions.modal.title' | translate }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="mb-3">
+          <label for="transfer-type" class="form-label">{{
+            'transactions.modal.type' | translate
+          }}</label>
           <select
+            id="transfer-type"
             class="form-select"
             [formField]="transferForm.type"
             (change)="selectTransactionType($event)"
           >
-            <option [value]="transactionType.TRANSFER" selected>Transfer</option>
-            <option [value]="transactionType.BUY">Kauf</option>
+            <option [value]="transactionType.TRANSFER" selected>
+              {{ 'transactions.modal.transfer' | translate }}
+            </option>
+            <option [value]="transactionType.BUY">
+              {{ 'transactions.modal.buy' | translate }}
+            </option>
           </select>
         </div>
         <div class="mb-3">
-          <label for="transfer-date" class="form-label">Datum</label>
+          <label for="transfer-date" class="form-label">{{
+            'transactions.modal.bookingDate' | translate
+          }}</label>
           <input
             type="date"
             class="form-control"
@@ -26,28 +36,40 @@
           />
         </div>
         <div class="mb-3">
-          <label for="transfer-from-account" class="form-label">Von</label>
-          <input
-            type="number"
-            class="form-control"
+          <label for="transfer-from-account" class="form-label">{{
+            'transactions.modal.fromAccount' | translate
+          }}</label>
+          <select
             id="transfer-from-account"
+            class="form-select"
             [formField]="transferForm.fromAccountId"
-          />
+          >
+            @for (account of accounts(); track account.id) {
+              <option [value]="account.id">{{ account.name }}</option>
+            }
+          </select>
         </div>
         @if (selectedTransactionType() === transactionType.TRANSFER) {
           <div class="mb-3">
-            <label for="transfer-to-account" class="form-label">Zu</label>
-            <input
-              type="number"
-              class="form-control"
+            <label for="transfer-to-account" class="form-label">{{
+              'transactions.modal.toAccount' | translate
+            }}</label>
+            <select
               id="transfer-to-account"
+              class="form-select"
               [formField]="transferForm.toAccountId"
-            />
+            >
+              @for (account of accounts(); track account.id) {
+                <option [value]="account.id">{{ account.name }}</option>
+              }
+            </select>
           </div>
         }
         @if (selectedTransactionType() === transactionType.BUY) {
           <div class="mb-3">
-            <label for="transfer-asset" class="form-label">Asset</label>
+            <label for="transfer-asset" class="form-label">{{
+              'transactions.modal.asset' | translate
+            }}</label>
             <select id="transfer-asset" class="form-select">
               @for (asset of assets(); track asset.id) {
                 <option [value]="asset.id">{{ asset.name }}</option>
@@ -55,7 +77,9 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="transfer-quantity" class="form-label">Stückzahl</label>
+            <label for="transfer-quantity" class="form-label">{{
+              'transactions.modal.quantity' | translate
+            }}</label>
             <input
               type="number"
               class="form-control"
@@ -64,7 +88,9 @@
             />
           </div>
           <div class="mb-3">
-            <label for="transfer-unit-price" class="form-label">Preis</label>
+            <label for="transfer-unit-price" class="form-label">{{
+              'transactions.modal.price' | translate
+            }}</label>
             <input
               type="number"
               class="form-control"
@@ -73,7 +99,9 @@
             />
           </div>
           <div class="mb-3">
-            <label for="transfer-fees" class="form-label">Gebühren</label>
+            <label for="transfer-fees" class="form-label">{{
+              'transactions.modal.fees' | translate
+            }}</label>
             <input
               type="number"
               class="form-control"
@@ -82,7 +110,9 @@
             />
           </div>
           <div class="mb-3">
-            <label for="transfer-taxes" class="form-label">Steuern</label>
+            <label for="transfer-taxes" class="form-label">{{
+              'transactions.modal.taxes' | translate
+            }}</label>
             <input
               type="number"
               class="form-control"
@@ -92,7 +122,9 @@
           </div>
         }
         <div class="mb-3">
-          <label for="transfer-amount" class="form-label">Betrag</label>
+          <label for="transfer-amount" class="form-label">{{
+            'transactions.modal.amount' | translate
+          }}</label>
           <input
             type="number"
             class="form-control"
@@ -101,9 +133,11 @@
           />
         </div>
         <div class="mb-3">
-          <label for="transfer-note" class="form-label">Notiz</label>
+          <label for="transfer-note" class="form-label">{{
+            'transactions.modal.note' | translate
+          }}</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
             id="transfer-note"
             [formField]="transferForm.note"
@@ -111,8 +145,12 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
-        <button type="button" class="btn btn-primary" (click)="createTransfer()">Speichern</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ 'common.button.close' | translate }}
+        </button>
+        <button type="button" class="btn btn-primary" (click)="createTransfer()">
+          {{ 'common.button.save' | translate }}
+        </button>
       </div>
     </div>
   </div>

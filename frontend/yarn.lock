@@ -1146,6 +1146,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fortawesome/fontawesome-free@npm:^7.3.1":
+  version: 7.3.1
+  resolution: "@fortawesome/fontawesome-free@npm:7.3.1"
+  checksum: 10c0/85b70ea64e69b9635ff0b949871acaaf0e6c6fd41860b8a78a5067123a42dd71144f7f7feea7aee013a485166ee8bf8ee3aafb15146dc0f55512d07015adddee
+  languageName: node
+  linkType: hard
+
 "@gar/promise-retry@npm:^1.0.0, @gar/promise-retry@npm:^1.0.2":
   version: 1.0.3
   resolution: "@gar/promise-retry@npm:1.0.3"
@@ -1802,6 +1809,32 @@ __metadata:
     "@emnapi/core": ^1.7.1
     "@emnapi/runtime": ^1.7.1
   checksum: 10c0/727f2b6ae0e68bbe5d39aeb68aa6f183314e9f03dc50bb55a962849535b2db53ecc3fbf1554d8656a54488a608df5a2634670595cf5874dc4af2ee59f817c65d
+  languageName: node
+  linkType: hard
+
+"@ngx-translate/core@npm:^18.0.0":
+  version: 18.0.0
+  resolution: "@ngx-translate/core@npm:18.0.0"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    "@angular/common": ">=18"
+    "@angular/core": ">=18"
+    rxjs: ">=7"
+  checksum: 10c0/f7bd0675946aec3bed334313f84be998bb8d5f0a88f048f65288f5933e61749e6a5bb639dfd5a1e0cce31ea11ed98f8c325bad2a8f8a2d0678f62203f9e3ceba
+  languageName: node
+  linkType: hard
+
+"@ngx-translate/http-loader@npm:^18.0.0":
+  version: 18.0.0
+  resolution: "@ngx-translate/http-loader@npm:18.0.0"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    "@angular/common": ">=18"
+    "@angular/core": ">=18"
+    "@ngx-translate/core": ">=18.0.0"
+  checksum: 10c0/204183e4f0c6e83c0db3df1ab001aaadb0e315bc0896df5555a6d30f672887824f2ae01331e1dc0e39ffbde45274bedddbf4189da398469aa7012b871cf73771
   languageName: node
   linkType: hard
 
@@ -3823,6 +3856,9 @@ __metadata:
     "@angular/forms": "npm:^22.0.0"
     "@angular/platform-browser": "npm:^22.0.0"
     "@angular/router": "npm:^22.0.0"
+    "@fortawesome/fontawesome-free": "npm:^7.3.1"
+    "@ngx-translate/core": "npm:^18.0.0"
+    "@ngx-translate/http-loader": "npm:^18.0.0"
     "@types/bootstrap": "npm:^5"
     bootstrap: "npm:^5.3.8"
     jsdom: "npm:^28.0.0"

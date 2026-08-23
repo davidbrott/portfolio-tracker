@@ -4,12 +4,14 @@ import { TransactionType } from '../../../enum/transaction-type.enum';
 import { Transaction } from '../../../models/transaction.model';
 import { Modal } from 'bootstrap';
 import { Asset } from '../../../../assets/models/asset.model';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Account } from '../../../../../shared/models/account.model';
 
 interface TransferData {
   bookingDate: string;
   type: TransactionType;
-  fromAccountId: number;
-  toAccountId: number;
+  fromAccountId: string;
+  toAccountId: string;
   assetId: number;
   amount: number;
   quantity: number;
@@ -21,7 +23,7 @@ interface TransferData {
 
 @Component({
   selector: 'app-transaction-modal',
-  imports: [FormField],
+  imports: [FormField, TranslatePipe],
   templateUrl: './transaction-modal.html',
   styleUrl: './transaction-modal.scss'
 })
@@ -30,8 +32,8 @@ export class TransactionModal {
   transferModel = signal<TransferData>({
     bookingDate: '',
     type: TransactionType.TRANSFER,
-    fromAccountId: 0,
-    toAccountId: 0,
+    fromAccountId: '',
+    toAccountId: '',
     assetId: 0,
     amount: 0,
     quantity: 0,
@@ -44,6 +46,7 @@ export class TransactionModal {
   transferForm = form(this.transferModel);
   selectedTransactionType = signal<TransactionType>(TransactionType.TRANSFER);
   assets = signal<Asset[]>([]);
+  accounts = signal<Account[]>([]);
 
   transactionCreated = output<Transaction>();
 
@@ -51,19 +54,21 @@ export class TransactionModal {
 
   private bootstrapModal!: Modal;
 
-  open(assets: Asset[]): void {
+  open(assets: Asset[], accounts: Account[]): void {
     this.assets.set(assets);
+    this.accounts.set(accounts);
     this.bootstrapModal = new Modal(this.modal()!.nativeElement);
     this.bootstrapModal.show();
   }
 
   createTransfer(): void {
-    // const transaction: Transaction = {
-    //   type: TransactionType.TRANSFER,
-    //   ...this.transferModel()
-    // }
+    const transaction: Transaction = {
+      ...this.transferModel(),
+      fromAccountId: parseInt(this.transferModel().fromAccountId, 10),
+      toAccountId: parseInt(this.transferModel().toAccountId, 10)
+    };
 
-    // this.transactionCreated.emit(transaction);
+    this.transactionCreated.emit(transaction);
     this.bootstrapModal.hide();
   }
 

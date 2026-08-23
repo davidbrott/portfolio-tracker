@@ -1,7 +1,8 @@
 <div class="account-header-container">
-  <h3>Konten</h3>
+  <h3>{{ 'accounts.header.title' | translate }}</h3>
   <button type="button" class="btn btn-secondary btn-sm" (click)="openAccountModal()">
-    Hinzufügen
+    <span class="fa-solid fa-plus"></span>
+    {{ 'accounts.header.addAccount' | translate }}
   </button>
 </div>
 

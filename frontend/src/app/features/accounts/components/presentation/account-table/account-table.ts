@@ -1,9 +1,12 @@
 import { Component, inject, input, OnInit } from '@angular/core';
-import { Account } from '../../../models/account.model';
+import { CurrencyPipe } from '@angular/common';
+import { AccountTypeLabelPipe } from '../../../pipes/account-type-label.pipe';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Account } from '../../../../../shared/models/account.model';
 
 @Component({
   selector: 'app-account-table',
-  imports: [],
+  imports: [CurrencyPipe, AccountTypeLabelPipe, TranslatePipe],
   templateUrl: './account-table.html',
   styleUrl: './account-table.scss'
 })

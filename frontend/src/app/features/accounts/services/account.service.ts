@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Service } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ACCOUNT_ENDPOINTS } from '../account.constants';
-import { Account } from '../models/account.model';
+import { Account } from '../../../shared/models/account.model';
 
 @Service()
 export class AccountService {

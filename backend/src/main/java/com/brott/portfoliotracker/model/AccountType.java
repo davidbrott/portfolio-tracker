@@ -1,6 +1,7 @@
 package com.brott.portfoliotracker.model;
 
 public enum AccountType {
-  CASH,
+  CHECKING_ACCOUNT,
+  SAVINGS_ACCOUNT,
   FIXED_DEPOSIT
 }

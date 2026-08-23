@@ -1,17 +1,25 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Datum</th>
-      <th>Betrag</th>
-      <th>Typ</th>
+      <th>{{ 'transactions.table.bookingDate' | translate }}</th>
+      <th>{{ 'transactions.table.type' | translate }}</th>
+      <th>{{ 'transactions.table.amount' | translate }}</th>
+      <th>{{ 'transactions.table.fromAccount' | translate }}</th>
+      <th>{{ 'transactions.table.toAccount' | translate }}</th>
+      <th>{{ 'transactions.table.note' | translate }}</th>
     </tr>
   </thead>
   <tbody>
     @for (t of transactions(); track t.id) {
       <tr>
-        <td>{{ t.bookingDate }}</td>
-        <td>{{ t.amount }}</td>
+        <td>{{ t.bookingDate | date: 'dd.MM.yyyy' }}</td>
+        <!-- TODO Konfigurierbar per backend application.yml -->
         <td>{{ t.type }}</td>
+        <td>{{ t.amount | currency: 'EUR' }}</td>
+        <!-- TODO Konfigurierbar per backend application.yml -->
+        <td>{{ t.fromAccountId | accountName: accounts() }}</td>
+        <td>{{ t.toAccountId | accountName: accounts() }}</td>
+        <td>{{ t.note }}</td>
       </tr>
     }
   </tbody>

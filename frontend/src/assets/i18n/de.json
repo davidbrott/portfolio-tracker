@@ -1,0 +1,62 @@
+{
+  "common": {
+    "title": "Portfolio Tracker",
+    "button": {
+      "close": "Schließen",
+      "save": "Speichern"
+    }
+  },
+  "navigation": {
+    "accounts": "Konten",
+    "transactions": "Transaktionen",
+    "assets": "Assets"
+  },
+  "accounts": {
+    "header": {
+      "title": "Konten",
+      "addAccount": "Hinzufügen"
+    },
+    "table": {
+      "name": "Name",
+      "bank": "Bank",
+      "type": "Typ",
+      "balance": "Kontostand"
+    },
+    "modal": {
+      "title": "Konto hinzufügen",
+      "name": "Name",
+      "bank": "Bank",
+      "type": "Typ",
+      "balance": "Kontostand",
+      "checkAccount": "Girokonto",
+      "fixedDepositAccount": "Festgeldkonto",
+      "instantAccessAccount": "Tagesgeldkonto"
+    }
+  },
+  "transactions": {
+    "table": {
+      "bookingDate": "Buchungsdatum",
+      "type": "Typ",
+      "amount": "Betrag",
+      "fromAccount": "Von Konto",
+      "toAccount": "Zu Konto",
+      "note": "Notiz"
+    },
+    "modal": {
+      "title": "Transaktion hinzufügen",
+      "transfer": "Transfer",
+      "type": "Typ",
+      "buy": "Kauf",
+      "bookingDate": "Buchungsdatum",
+      "fromAccount": "Von Konto",
+      "toAccount": "Zu Konto",
+      "asset": "Asset",
+      "quantity": "Stückzahl",
+      "price": "Preis",
+      "fees": "Gebühren",
+      "taxes": "Steuern",
+      "amount": "Betrag",
+      "note": "Notiz"
+    }
+  }
+}

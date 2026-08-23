@@ -1,16 +1,20 @@
 <table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Bank</th>
-    <th>Kontostand</th>
-    <th>Typ</th>
-  </tr>
-  @for (a of accounts(); track a.id) {
+  <thead>
     <tr>
-      <td>{{ a.name }}</td>
-      <td>{{ a.bankName }}</td>
-      <td>{{ a.currentBalance }}</td>
-      <td>{{ a.type }}</td>
+      <th scope="col">{{ 'accounts.table.name' | translate }}</th>
+      <th scope="col">{{ 'accounts.table.bank' | translate }}</th>
+      <th scope="col">{{ 'accounts.table.balance' | translate }}</th>
+      <th scope="col">{{ 'accounts.table.type' | translate }}</th>
     </tr>
-  }
+  </thead>
+  <tbody>
+    @for (a of accounts(); track a.id) {
+      <tr>
+        <td>{{ a.name }}</td>
+        <td>{{ a.bankName }}</td>
+        <td>{{ a.currentBalance | currency: 'EUR' }}</td>
+        <td>{{ a.type | accountTypeLabel }}</td>
+      </tr>
+    }
+  </tbody>
 </table>
