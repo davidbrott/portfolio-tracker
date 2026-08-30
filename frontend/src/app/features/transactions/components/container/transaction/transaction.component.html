@@ -4,7 +4,11 @@
     btnLabel="Hinzufügen"
     (create)="openTransactionModal()"
   />
-  <app-transaction-table [transactions]="allTransactions()" [accounts]="allAccounts()" />
+  <app-transaction-table
+    [transactions]="allTransactions()"
+    [accounts]="allAccounts()"
+    [settings]="applicationStore.settings()"
+  />
 </div>
 
 <app-transaction-modal #transactionModal (transactionCreated)="createTransaction($event)" />

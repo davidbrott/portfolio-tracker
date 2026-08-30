@@ -9,6 +9,7 @@ import { AssetService } from '../../../../assets/services/asset.service';
 import { Asset } from '../../../../assets/models/asset.model';
 import { AccountService } from '../../../../accounts/services/account.service';
 import { Account } from '../../../../../shared/models/account.model';
+import { ApplicationStore } from '../../../../../core/application.store';
 
 @Component({
   selector: 'app-transaction',
@@ -20,6 +21,8 @@ export class TransactionComponent implements OnInit {
   transactionModal = viewChild<TransactionModal>('transactionModal');
   allTransactions = signal<Transaction[]>([]);
   allAccounts = signal<Account[]>([]);
+
+  applicationStore = inject(ApplicationStore);
 
   private allAssets = signal<Asset[]>([]);
   private readonly transactionService = inject(TransactionService);

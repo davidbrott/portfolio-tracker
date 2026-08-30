@@ -12,11 +12,9 @@
   <tbody>
     @for (t of transactions(); track t.id) {
       <tr>
-        <td>{{ t.bookingDate | date: 'dd.MM.yyyy' }}</td>
-        <!-- TODO Konfigurierbar per backend application.yml -->
+        <td>{{ t.bookingDate | date: `${settings() ? settings()!.dateFormat : 'dd.MM.yyyy'}` }}</td>
         <td>{{ t.type }}</td>
-        <td>{{ t.amount | currency: 'EUR' }}</td>
-        <!-- TODO Konfigurierbar per backend application.yml -->
+        <td>{{ t.amount | currency: `${settings() ? settings()!.currencyFormat : 'EUR'}` }}</td>
         <td>{{ t.fromAccountId | accountName: accounts() }}</td>
         <td>{{ t.toAccountId | accountName: accounts() }}</td>
         <td>{{ t.note }}</td>

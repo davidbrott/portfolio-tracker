@@ -12,3 +12,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+settings:
+  date-format: dd.MM.yyyy
+  currency-format: EUR
