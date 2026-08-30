@@ -1,11 +1,5 @@
-# TODO
+Portfolio Tracker – Backend
 
-- Error Handling
-- Logging
-- Code Formatierung
-- DTO Konvertierung und Verwendung optimieren
-- JavaDoc schreiben
-- Unit Tests schreiben
-- DATAENTSTRUKTUR aufzeichenen und nachvollziehen. Sinnvoll alle wichtigen Infos aus Transaction-Tabelle zu holen wie z.
-  B. einzelne Kontostände??
-- SwaggerUI
+The backend of the Portfolio Tracker application, built with Java and Spring Boot.
+
+It provides the REST API, business logic, data persistence, and validation for the application.
