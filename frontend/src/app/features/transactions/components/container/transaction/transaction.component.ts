@@ -10,10 +10,11 @@ import { Asset } from '../../../../assets/models/asset.model';
 import { AccountService } from '../../../../accounts/services/account.service';
 import { Account } from '../../../../../shared/models/account.model';
 import { ApplicationStore } from '../../../../../core/application.store';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-transaction',
-  imports: [TransactionTable, FeatureHeader, TransactionModal],
+  imports: [TransactionTable, FeatureHeader, TransactionModal, TranslatePipe],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.scss'
 })

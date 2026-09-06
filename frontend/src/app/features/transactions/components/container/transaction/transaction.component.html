@@ -1,7 +1,7 @@
 <div class="transaction-container">
   <app-feature-header
-    title="Transaktionen"
-    btnLabel="Hinzufügen"
+    [title]="'transactions.header.title' | translate"
+    [btnLabel]="'transactions.header.addTransaction' | translate"
     (create)="openTransactionModal()"
   />
   <app-transaction-table

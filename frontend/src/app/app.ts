@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -9,10 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('frontend');
   private readonly translate = inject(TranslateService);
 
   constructor() {
-    this.translate.addLangs(['de']);
+    this.translate.addLangs(['en', 'de']);
   }
 }

@@ -5,8 +5,19 @@
   color: white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  .header__buttons--menu {
+    background: transparent;
+    border: none;
+    color: white;
+  }
 }
 
 h2 {
   margin: 0;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }

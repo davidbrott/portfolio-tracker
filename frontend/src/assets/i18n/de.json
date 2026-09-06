@@ -3,13 +3,20 @@
     "title": "Portfolio Tracker",
     "button": {
       "close": "Schließen",
-      "save": "Speichern"
+      "save": "Speichern",
+      "language": "English",
+      "logout": "Abmelden",
+      "login": "Anmelden"
     }
   },
   "navigation": {
     "accounts": "Konten",
     "transactions": "Transaktionen",
     "assets": "Assets"
+  },
+  "login": {
+    "username": "Benutzername",
+    "password": "Passwort"
   },
   "accounts": {
     "header": {
@@ -34,6 +41,10 @@
     }
   },
   "transactions": {
+    "header": {
+      "title": "Transaktionen",
+      "addTransaction": "Hinzufügen"
+    },
     "table": {
       "bookingDate": "Buchungsdatum",
       "type": "Typ",

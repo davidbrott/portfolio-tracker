@@ -9,20 +9,21 @@ import { provideRouter } from '@angular/router';
 
 import localeDe from '@angular/common/locales/de';
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { firstValueFrom, tap } from 'rxjs';
 import { SettingsService } from './core/services/settings.service';
 import { ApplicationStore } from './core/application.store';
+import { credentialInterceptor } from './core/interceptor/credentials.interceptor';
 
 registerLocaleData(localeDe, 'de-DE');
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([credentialInterceptor])),
     provideAppInitializer(() => {
       const settingsService = inject(SettingsService);
       const applicationStore = inject(ApplicationStore);
@@ -38,8 +39,8 @@ export const appConfig: ApplicationConfig = {
         prefix: './assets/i18n/',
         suffix: '.json'
       }),
-      lang: 'de',
-      fallbackLang: 'de'
+      lang: 'en',
+      fallbackLang: 'en'
     }),
     { provide: LOCALE_ID, useValue: 'de-DE' }
   ]

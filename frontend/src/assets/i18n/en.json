@@ -1,0 +1,73 @@
+{
+  "common": {
+    "title": "Portfolio Tracker",
+    "button": {
+      "close": "Close",
+      "save": "Save",
+      "language": "German",
+      "logout": "Logout",
+      "login": "Login"
+    }
+  },
+  "navigation": {
+    "accounts": "Accounts",
+    "transactions": "Transactions",
+    "assets": "Assets"
+  },
+  "login": {
+    "username": "Name",
+    "password": "Password"
+  },
+  "accounts": {
+    "header": {
+      "title": "Accounts",
+      "addAccount": "Add"
+    },
+    "table": {
+      "name": "Name",
+      "bank": "Bank",
+      "type": "Type",
+      "balance": "Balance"
+    },
+    "modal": {
+      "title": "Add Account",
+      "name": "Name",
+      "bank": "Bank",
+      "type": "Type",
+      "balance": "Balance",
+      "checkAccount": "Checking Account",
+      "fixedDepositAccount": "Fixed-Term Deposit Account",
+      "instantAccessAccount": "Instant Access Savings Account"
+    }
+  },
+  "transactions": {
+    "header": {
+      "title": "Transactions",
+      "addTransaction": "Add"
+    },
+    "table": {
+      "bookingDate": "Booking Date",
+      "type": "Type",
+      "amount": "Amount",
+      "fromAccount": "From Account",
+      "toAccount": "To Account",
+      "note": "Note"
+    },
+    "modal": {
+      "title": "Add Transaction",
+      "transfer": "Transfer",
+      "type": "Type",
+      "buy": "Buy",
+      "bookingDate": "Booking Date",
+      "fromAccount": "From Account",
+      "toAccount": "To Account",
+      "asset": "Asset",
+      "quantity": "Quantity",
+      "price": "Price",
+      "fees": "Fees",
+      "taxes": "Taxes",
+      "amount": "Amount",
+      "note": "Note"
+    }
+  }
+}
