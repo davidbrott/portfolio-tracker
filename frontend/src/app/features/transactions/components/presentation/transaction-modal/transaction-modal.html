@@ -70,7 +70,7 @@
             <label for="transfer-asset" class="form-label">{{
               'transactions.modal.asset' | translate
             }}</label>
-            <select id="transfer-asset" class="form-select">
+            <select id="transfer-asset" class="form-select" [formField]="transferForm.assetId">
               @for (asset of assets(); track asset.id) {
                 <option [value]="asset.id">{{ asset.name }}</option>
               }

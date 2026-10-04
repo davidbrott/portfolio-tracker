@@ -69,5 +69,16 @@
       "amount": "Betrag",
       "note": "Notiz"
     }
+  },
+  "assets": {
+    "table": {
+      "groupedAssets": {
+        "name": "Name",
+        "type": "Typ",
+        "amount": "Betrag",
+        "quantity": "Stückzahl",
+        "unitPrice": "Stückpreis"
+      }
+    }
   }
 }

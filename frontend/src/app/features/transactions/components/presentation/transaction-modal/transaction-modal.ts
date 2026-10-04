@@ -12,7 +12,7 @@ interface TransferData {
   type: TransactionType;
   fromAccountId: string;
   toAccountId: string;
-  assetId: number;
+  assetId: string;
   amount: number;
   quantity: number;
   unitPrice: number;
@@ -34,7 +34,7 @@ export class TransactionModal {
     type: TransactionType.TRANSFER,
     fromAccountId: '',
     toAccountId: '',
-    assetId: 0,
+    assetId: '',
     amount: 0,
     quantity: 0,
     unitPrice: 0,
@@ -65,7 +65,11 @@ export class TransactionModal {
     const transaction: Transaction = {
       ...this.transferModel(),
       fromAccountId: parseInt(this.transferModel().fromAccountId, 10),
-      toAccountId: parseInt(this.transferModel().toAccountId, 10)
+      toAccountId:
+        this.transferModel().type === TransactionType.TRANSFER
+          ? parseInt(this.transferModel().toAccountId, 10)
+          : null,
+      assetId: this.transferModel().assetId !== '' ? parseInt(this.transferModel().assetId, 10) : 0
     };
 
     this.transactionCreated.emit(transaction);

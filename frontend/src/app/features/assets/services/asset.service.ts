@@ -4,6 +4,7 @@ import { Price } from '../models/price.model';
 import { Observable } from 'rxjs';
 import { ASSET_ENDPOINTS } from '../asset.constants';
 import { Asset } from '../models/asset.model';
+import { GroupedAsset } from '../models/grouped-asset.model';
 
 @Service()
 export class AssetService {
@@ -19,5 +20,9 @@ export class AssetService {
 
   getAllAssets(): Observable<Asset[]> {
     return this.http.get<Asset[]>(ASSET_ENDPOINTS.GET_ALL_ASSETS);
+  }
+
+  groupByAssets(): Observable<GroupedAsset[]> {
+    return this.http.get<GroupedAsset[]>(ASSET_ENDPOINTS.GROUP_BY_ASSETS);
   }
 }

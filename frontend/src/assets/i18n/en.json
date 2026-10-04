@@ -69,5 +69,16 @@
       "amount": "Amount",
       "note": "Note"
     }
+  },
+  "assets": {
+    "table": {
+      "groupedAssets": {
+        "name": "Name",
+        "type": "Type",
+        "amount": "Amount",
+        "quantity": "Quantity",
+        "unitPrice": "Unit Price"
+      }
+    }
   }
 }

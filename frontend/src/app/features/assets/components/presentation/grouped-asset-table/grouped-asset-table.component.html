@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{{ 'assets.table.groupedAssets.name' | translate }}</th>
+      <th scope="col">{{ 'assets.table.groupedAssets.type' | translate }}</th>
+      <th scope="col">{{ 'assets.table.groupedAssets.amount' | translate }}</th>
+      <th scope="col">{{ 'assets.table.groupedAssets.quantity' | translate }}</th>
+      <th scope="col">{{ 'assets.table.groupedAssets.unitPrice' | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (groupedAsset of groupedAssets(); track groupedAsset.name) {
+      <tr>
+        <td>{{ groupedAsset.name }}</td>
+        <td>{{ groupedAsset.type }}</td>
+        <td>{{ groupedAsset.amount }}</td>
+        <td>{{ groupedAsset.quantity }}</td>
+        <td>{{ groupedAsset.unitPrice }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

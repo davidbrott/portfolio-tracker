@@ -1,5 +1,6 @@
 package com.brott.portfoliotracker.controller;
 
+import com.brott.portfoliotracker.model.dto.GroupedAssetDTO;
 import com.brott.portfoliotracker.model.dto.TransactionCreationDTO;
 import com.brott.portfoliotracker.model.dto.TransactionDTO;
 import com.brott.portfoliotracker.service.TransactionService;
@@ -24,6 +25,11 @@ public class TransactionController {
   @GetMapping("/")
   public List<TransactionDTO> findAll() {
     return this.transactionService.findAll();
+  }
+
+  @GetMapping("/assets/")
+  public List<GroupedAssetDTO> groupByAssets() {
+    return this.transactionService.groupByAssets();
   }
 
   @PostMapping("/")

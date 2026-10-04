@@ -1,6 +1,7 @@
 <div class="asset-container">
   <app-feature-header title="Assets" btnLabel="Hinzufügen" (create)="openAssetModal()" />
   <app-asset-table [assets]="assets()" />
+  <app-grouped-asset-table [groupedAssets]="groupedAssets()" />
 </div>
 
 <app-asset-modal #assetModal (assetCreated)="createAsset($event)" />

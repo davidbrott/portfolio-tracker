@@ -1,5 +1,6 @@
 package com.brott.portfoliotracker.service;
 
+import com.brott.portfoliotracker.model.dto.GroupedAssetDTO;
 import com.brott.portfoliotracker.model.dto.TransactionCreationDTO;
 import com.brott.portfoliotracker.model.dto.TransactionDTO;
 import java.math.BigDecimal;
@@ -16,6 +17,8 @@ public interface TransactionService {
   BigDecimal sumIncoming(Long accountId);
 
   BigDecimal sumOutgoing(Long accountId);
+
+  List<GroupedAssetDTO> groupByAssets();
 
   // TODO Delete
 }

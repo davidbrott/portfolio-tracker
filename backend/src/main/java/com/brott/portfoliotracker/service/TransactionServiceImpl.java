@@ -4,6 +4,7 @@ import com.brott.portfoliotracker.exception.AccountNotFoundException;
 import com.brott.portfoliotracker.exception.AssetNotFoundException;
 import com.brott.portfoliotracker.exception.TransactionNotFoundException;
 import com.brott.portfoliotracker.mapper.TransactionMapper;
+import com.brott.portfoliotracker.model.dto.GroupedAssetDTO;
 import com.brott.portfoliotracker.model.dto.TransactionCreationDTO;
 import com.brott.portfoliotracker.model.dto.TransactionDTO;
 import com.brott.portfoliotracker.model.entity.Account;
@@ -49,7 +50,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     if (fromAccount.isEmpty()) {
       throw new AccountNotFoundException(
-          String.format("Account with %s does not exist", dto.fromAccountId()));
+          String.format("Account with id %s does not exist", dto.fromAccountId()));
     }
 
     Account fromAcc = fromAccount.get();
@@ -63,7 +64,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         if (toAccount.isEmpty()) {
           throw new AccountNotFoundException(
-              String.format("Account with %s does not exist", dto.toAccountId()));
+              String.format("Account with id %s does not exist", dto.toAccountId()));
         }
 
         Account toAcc = toAccount.get();
@@ -87,7 +88,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         if (asset.isEmpty()) {
           throw new AssetNotFoundException(
-              String.format("Asset with %s does not exist", dto.assetId()));
+              String.format("Asset with id %s does not exist", dto.assetId()));
         }
 
         transactionDTO = saveTransaction(dto, fromAcc, null, asset.get());
@@ -142,5 +143,10 @@ public class TransactionServiceImpl implements TransactionService {
         this.transactionRepository.save(
             transactionMapper.toTransaction(dto, fromAccount, toAccount, asset));
     return transactionMapper.toDto(transaction);
+  }
+
+  @Override
+  public List<GroupedAssetDTO> groupByAssets() {
+    return transactionRepository.groupByAssets();
   }
 }
